@@ -19,7 +19,7 @@ class Encryption extends Trongate {
     function _encrypt($plaintext) {
         $ivlen = \openssl_cipher_iv_length($this->cipher);
         $iv = \openssl_random_pseudo_bytes($ivlen);
-        $ciphertext = openssl_encrypt($plaintext, $this->cipher, $this->key, $this->options, $iv,$tag);
+        $ciphertext = openssl_encrypt($plaintext, $this->cipher, $this->key, $this->options, $iv, $tag);
         $enc_string = bin2hex($iv).bin2hex($tag).$ciphertext;
         return $enc_string;
     }
